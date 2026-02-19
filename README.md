@@ -15,10 +15,10 @@ Información y glosario:
 
 ### Autores
 
-**Lead Instructor**: *XXX*
+**Lead Instructor**: *David Pernas*
 
-- xxx@thebridgeschool.es
+- david.pernas@thebridgeschool.es
 
-**Teacher Assistant**: *YYY*
+**Teacher Assistant**: *Itsazain M. Bilbao*
 
-- yyy@thebridgeschool.es
+- jon.itsazain@thebridgeschool.es
