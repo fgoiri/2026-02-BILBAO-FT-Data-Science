@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../Battleships_The_Bridge_FGoiri/Battleships"
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"github.copilot-chat"
+		]
+	}
+}
