@@ -1,0 +1,39 @@
+-- Obtener los clientes de Brasil
+SELECT *
+FROM customers
+WHERE country == 'Brazil';
+
+-- Obtener los empleados que son agentes de ventas
+SELECT *
+FROM employees
+WHERE Title == 'Sales Support Agent';
+
+-- Obtener las canciones de ‘AC/DC’
+
+SELECT *
+FROM tracks
+WHERE Composer == 'AC/DC';
+
+-- Obtener los campos de los clientes que no sean de USA: Nombre completo, ID, País
+SELECT customers.FirstName, customers.LastName, customers.CustomerId, customers.Country
+FROM customers
+WHERE Country != 'USA';
+
+--  Obtener los empleados que son agentes de ventas: Nombre completo, Dirección (Ciudad, Estado, País) y email
+SELECT employees.FirstName, employees.LastName, employees.Address, employees.City, employees.State, employees.Country, employees.Email
+FROM employees
+WHERE Title == 'Sales Support Agent';
+
+-- Obtener una lista con los países no repetidos a los que se han emitido facturas
+SELECT DISTINCT invoices.BillingCountry
+FROM invoices;
+
+-- Obtener una lista con los estados de USA no repetidos de donde son los clientes y cuántos clientes en cada uno.
+SELECT customers.State, count(customers.CustomerId)
+FROM customers
+WHERE Country == 'USA'
+GROUP BY State;
+
+-- Cuántos artículos tiene la factura 37
+SELECT *
+FROM invoices
