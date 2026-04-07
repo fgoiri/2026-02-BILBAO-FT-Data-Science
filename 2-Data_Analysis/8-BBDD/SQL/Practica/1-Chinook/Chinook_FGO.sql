@@ -34,19 +34,22 @@ WHERE Country == 'USA'
 GROUP BY State;
 
 -- Cuántos artículos tiene la factura 37
-SELECT invoice_items.InvoiceId, sum(invoice_items.Quantity)
+SELECT invoice_items.InvoiceId, SUM(invoice_items.Quantity)
 FROM invoice_items
 WHERE invoice_items.InvoiceId == 37;
 
 -- Cuántas canciones tiene ‘AC/DC'
-SELECT tracks.Composer, count(tracks.Name)
+SELECT artists.Name, count(tracks.Name)
 FROM tracks
-WHERE tracks.Composer == 'AC/DC';
+    INNER JOIN albums ON tracks.AlbumId = albums.AlbumId
+    INNER JOIN artists ON artists.ArtistId = albums.ArtistId
+WHERE artists.Name == 'AC/DC';
 
 --Cuántos artículos tiene cada factura
 SELECT invoice_items.InvoiceId, sum(invoice_items.Quantity) AS Quantity
 FROM invoice_items
-GROUP BY invoice_items.InvoiceId;
+GROUP BY invoice_items.InvoiceId
+ORDER BY Quantity DESC;
 
 -- Cuántas facturas hay de cada país
 SELECT invoices.BillingCountry, count(invoices.InvoiceId) AS Numero_Facturas
