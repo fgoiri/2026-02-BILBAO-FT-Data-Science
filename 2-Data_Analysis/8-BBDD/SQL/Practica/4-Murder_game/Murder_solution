@@ -1,0 +1,46 @@
+-- Primero buscamos el caso:
+SELECT * FROM crime_scene_report
+WHERE date is 20180115 AND type = 'murder' AND city = 'SQL City';
+
+--Buscar el testigo que vive en Northwestern Dr y a Annabel que vive en Franklin Ave:
+SELECT * FROM person
+WHERE address_street_name = 'Northwestern Dr'
+ORDER BY address_number DESC;
+
+-- 1er testigo es Morty Schapiro
+-- 2º testigo
+SELECT * FROM person
+WHERE name LIKE '%Annabel%' AND address_street_name = 'Franklin Ave';
+
+-- Interrogatorios
+SELECT * FROM interview
+WHERE person_id IN (16371, 14887);
+
+-- Busqueda del coche:
+SELECT p.* FROM person p
+JOIN drivers_license d ON p.license_id = d.id
+WHERE d.plate_number LIKE '%H42W%';
+
+-- Busqueda en el gym:
+SELECT * FROM get_fit_now_member m
+INNER JOIN get_fit_now_check_in c ON c.membership_id = m.id
+WHERE membership_status = 'gold' AND check_in_date = 20180109 AND id LIKE '48Z%';
+
+-- El asesino es Jeremy Bowers
+INSERT INTO solution VALUES (1, 'Jeremy Bowers');
+SELECT value FROM solution;
+
+-- Interview murderer:
+SELECT * FROM interview
+WHERE person_id = 67318;
+
+-- Busqueda del verdadero asesino:
+SELECT DISTINCT * FROM facebook_event_checkin f
+INNER JOIN person p ON f.person_id = p.id
+INNER JOIN drivers_license d ON p.license_id = d.id
+WHERE f.event_name = 'SQL Symphony Concert' 
+AND f.date BETWEEN 20171201 AND 20171231 AND d.car_make = 'Tesla' AND d.car_model = 'Model S';
+
+-- Verdadera asesina:
+INSERT INTO solution VALUES (1, 'Miranda Priestly');
+SELECT value FROM solution;
