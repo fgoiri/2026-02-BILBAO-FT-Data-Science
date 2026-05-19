@@ -1,8 +1,14 @@
 from flask import Flask, request, jsonify
-
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
+from sklearn.linear_model import Lasso
+import pickle
+import os
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
+app.config["DEBUG"] = True # cuando la API ya está como nos gusta, se pone a False
 
 @app.route('/', methods=['GET'])
 def hello(): # Ligado al endopoint "/" o sea el home, con el método GET
@@ -26,13 +32,6 @@ def predict(): # Ligado al endpoint '/api/v1/predict', con el método GET
     
     return jsonify({'predictions': prediction[0]})
 
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
-from sklearn.linear_model import Lasso
-import pickle
-import os
 
 @app.route('/api/v1/retrain/', methods=['GET'])
 def retrain(): # Rutarlo al endpoint '/api/v1/retrain/', metodo GET
