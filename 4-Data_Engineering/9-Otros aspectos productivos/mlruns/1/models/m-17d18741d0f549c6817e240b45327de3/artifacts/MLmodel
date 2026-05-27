@@ -1,0 +1,34 @@
+artifact_path: /Users/fgoiri/Documents/Documentos_Fatima/Bootcamp/2026-02-BILBAO-FT-Data-Science/4-Data_Engineering/9-Otros
+  aspectos productivos/mlruns/1/models/m-17d18741d0f549c6817e240b45327de3/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.14
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.12.0
+model_id: m-17d18741d0f549c6817e240b45327de3
+model_size_bytes: 91930
+model_uuid: m-17d18741d0f549c6817e240b45327de3
+prompts: null
+run_id: 29394d1e2be94ae3a7342174b92ffeff
+saved_input_example_info:
+  artifact_path: input_example.json
+  serving_input_path: serving_input_example.json
+  type: ndarray
+signature:
+  inputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1, 4]}}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-05-26 10:53:52.645356'
